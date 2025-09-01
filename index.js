@@ -6,15 +6,22 @@ console.log(process.env)
 //App Setup
 const express = require('express') //imports express framework 
 const app = express()// Creates an Express application instance
-const port = //Sets the server port to 4000
+// const port = 4000;//Sets the server port to 4000
 
-
+const obj={
+    name:"yogesh",
+    age:12,
+    github:"no"
+}
  //route handlers
 app.get('/twitter', (req, res) => { 
     res.send('techdawg')
 }) //Responds to GET requests at /twitter endpoint. Returns plain text: "techdawg" 
 app.get('/', (req, res) => {
     res.send('hello')
+})
+app.get('/json', (req, res) => { 
+    res.json(obj);//to send json
 })
 app.get('/login',(req, res)=>{
     res.send('<h1>please login at chai aur code </h1> ')
@@ -27,5 +34,5 @@ app.get('/youtube',(req,res)=>{
 
 //Server Start
 app.listen(process.env.PORT, () => {
-    console.log(`Example app listening on port ${port}`)//Logs a confirmation message when the server is running
+    console.log(`Example app listening on port ${process.env.PORT}`)//Logs a confirmation message when the server is running
 })//Starts the server on port 4000
